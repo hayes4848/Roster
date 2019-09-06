@@ -75,3 +75,5 @@ int* Student::GetNumDaysToComplete(){
 void Student::Print(){
   std::cout << "Print Something\n";
 }
+
+Degree Student::getDegreeProgram(){}

@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 #include "degree.h"
 using namespace std;
@@ -26,7 +27,7 @@ class Student {
     void SetEmailAddress(std::string email_address);
     void SetAge(int age);
     void SetNumDaysToComplete(int numDaysToComplete[]);
-    virtual Degree getDegreeType() = 0;
+    virtual Degree getDegreeProgram() = 0;
     virtual void Print() = 0;
     
     int GetStudentID();

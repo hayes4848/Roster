@@ -11,14 +11,14 @@ SoftwareStudent::SoftwareStudent(int studentID, std::string first_name, std::str
 	dtype = SOFTWARE;
 }
 
-Degree SoftwareStudent::getDegreeType(){
+Degree SoftwareStudent::getDegreeProgram(){
 	return SOFTWARE;
 }
 
 void SoftwareStudent::Print()
 {
 	this->Student::Print();
-	std::cout << "FICTION" << "\n";
+	std::cout << "SOFTWARE" << "\n";
 }
 
 SoftwareStudent::~SoftwareStudent()

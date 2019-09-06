@@ -2,11 +2,11 @@
 #include <string>
 #include "student.h"
 
-class SoftwareStudent : public Student{
+class NetworkStudent : public Student{
 
 public:
-	SoftwareStudent();
-	SoftwareStudent(
+	NetworkStudent();
+	NetworkStudent(
 		int studentID,
 		string first_name,
 		string last_name,
@@ -19,5 +19,5 @@ public:
 	Degree getDegreeProgram();
 	void Print();
 
-	~SoftwareStudent();
+	~NetworkStudent();
 };

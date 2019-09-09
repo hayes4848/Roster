@@ -7,7 +7,7 @@ class SecurityStudent : public Student{
 public:
 	SecurityStudent();
 	SecurityStudent(
-		int studentID,
+		string studentID,
 		string first_name,
 		string last_name,
     string email_address,

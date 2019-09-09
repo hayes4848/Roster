@@ -7,7 +7,7 @@ class NetworkStudent : public Student{
 public:
 	NetworkStudent();
 	NetworkStudent(
-		int studentID,
+		string studentID,
 		string first_name,
 		string last_name,
     string email_address,

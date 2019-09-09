@@ -7,7 +7,7 @@ class SoftwareStudent : public Student{
 public:
 	SoftwareStudent();
 	SoftwareStudent(
-		int studentID,
+		string studentID,
 		string first_name,
 		string last_name,
     string email_address,

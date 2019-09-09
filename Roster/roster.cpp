@@ -4,6 +4,42 @@
 #include "softwareStudent.h"
 #include "securityStudent.h"
 #include "networkStudent.h"
+#include "roster.h"
+
+
+Roster::Roster() {
+  this->capacity = 0;
+  this->classRosterArray = nullptr;
+};
+
+void parseData(std::string data){
+  
+};
+
+void Roster::add(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree dt){
+	int daysInClass[Student::dayCompletionSize];
+	daysInClass[0] = daysInCourse1;
+	daysInClass[1] = daysInCourse2;
+	daysInClass[2] = daysInCourse3;
+	if (dt == SOFTWARE) classRosterArray[lastIndex] = new SoftwareStudent(studentID, firstName, lastName, emailAddress, age, daysInClass, dt);
+	else if (dt == NETWORKING) classRosterArray[lastIndex] = new NetworkStudent(studentID, firstName, lastName, emailAddress, age, daysInClass, dt);
+  else classRosterArray[lastIndex] = new SecurityStudent(studentID, firstName, lastName, emailAddress, age, daysInClass, dt);
+};
+void Roster::remove(std::string studentID){
+
+};
+void Roster::printAll(){
+
+}; //should loop through all students in array, and print according to rubric.
+void Roster::printDaysInCourse(std::string studentID){
+
+}; //should print *average* of the days in course for the student identified by the student ID param
+void Roster::printInvalidEmails(){
+
+};
+void Roster::printByDegreeProgram(int degreeProgram){
+
+};
 
 
 int main() {
@@ -15,13 +51,34 @@ const string studentData[] =
  "A5,Andrew,Hayes,ahaye68@wgu.edu,32,10,15,20,SOFTWARE"};
 
   int days[3] = {1,2,3};
-  SoftwareStudent freshman(10, "Andy", "Scott", "ahayes@wgu.edu", 32, days, SOFTWARE);
-  std::cout << freshman.GetStudentID() << "\n";
-  std::cout << freshman.GetFirstName() << "\n";
-  std::cout << freshman.GetEmailAddress() << "\n";
-  freshman.Print();
+  SoftwareStudent softwareFreshman(10, "Andy", "Scott", "ahayes@wgu.edu", 32, days, SOFTWARE);
+  std::cout << softwareFreshman.GetStudentID() << "\n";
+  std::cout << softwareFreshman.GetFirstName() << "\n";
+  std::cout << softwareFreshman.GetEmailAddress() << "\n";
+  softwareFreshman.Print();
+
+  SecurityStudent securityFreshman(11, "Ricky", "Bobby", "rbobby@wgu.edu", 21, days, SECURITY);
+  std::cout << securityFreshman.GetStudentID() << "\n";
+  std::cout << securityFreshman.GetFirstName() << "\n";
+  std::cout << securityFreshman.GetEmailAddress() << "\n";
+  securityFreshman.Print();
+
+  NetworkStudent NetworkFreshman(11, "Someone", "Else", "selse@wgu.edu", 45, days, NETWORKING);
+  std::cout << NetworkFreshman.GetStudentID() << "\n";
+  std::cout << NetworkFreshman.GetFirstName() << "\n";
+  std::cout << NetworkFreshman.GetEmailAddress() << "\n";
+  NetworkFreshman.Print();
 
   for(int i=0; i<5; i++){
     std::cout << studentData[i] << "\n";
   }
+
+  // classRoster.printAll();
+  // classRoster.printInvalidEmails();
+  // //loop through classRosterArray and for each element:
+  // classRoster.printAverageDaysInCourse(/*current_object's student id*/);
+  // classRoster.printByDegreeProgram(SOFTWARE);
+  // classRoster.remove("A3");
+  // classRoster.remove("A3");
+  // //expected: the above line should print a message saying such a student with this ID was not found.
 }

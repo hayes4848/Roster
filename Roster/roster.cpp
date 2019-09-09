@@ -12,8 +12,8 @@ Roster::Roster() {
   this->classRosterArray = nullptr;
 };
 
-void parseData(std::string data){
-  
+void Roster::parseData(std::string data){
+  std::cout << data;
 };
 
 void Roster::add(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree dt){
@@ -50,28 +50,31 @@ const string studentData[] =
  "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
  "A5,Andrew,Hayes,ahaye68@wgu.edu,32,10,15,20,SOFTWARE"};
 
-  int days[3] = {1,2,3};
-  SoftwareStudent softwareFreshman(10, "Andy", "Scott", "ahayes@wgu.edu", 32, days, SOFTWARE);
-  std::cout << softwareFreshman.GetStudentID() << "\n";
-  std::cout << softwareFreshman.GetFirstName() << "\n";
-  std::cout << softwareFreshman.GetEmailAddress() << "\n";
-  softwareFreshman.Print();
+ Roster* classRoster = new Roster();
 
-  SecurityStudent securityFreshman(11, "Ricky", "Bobby", "rbobby@wgu.edu", 21, days, SECURITY);
-  std::cout << securityFreshman.GetStudentID() << "\n";
-  std::cout << securityFreshman.GetFirstName() << "\n";
-  std::cout << securityFreshman.GetEmailAddress() << "\n";
-  securityFreshman.Print();
+ for (int i=0; i<5; i++){
+   classRoster->parseData(studentData[i]);
+ }
 
-  NetworkStudent NetworkFreshman(11, "Someone", "Else", "selse@wgu.edu", 45, days, NETWORKING);
-  std::cout << NetworkFreshman.GetStudentID() << "\n";
-  std::cout << NetworkFreshman.GetFirstName() << "\n";
-  std::cout << NetworkFreshman.GetEmailAddress() << "\n";
-  NetworkFreshman.Print();
+  // int days[3] = {1,2,3};
+  // SoftwareStudent softwareFreshman(10, "Andy", "Scott", "ahayes@wgu.edu", 32, days, SOFTWARE);
+  // std::cout << softwareFreshman.GetStudentID() << "\n";
+  // std::cout << softwareFreshman.GetFirstName() << "\n";
+  // std::cout << softwareFreshman.GetEmailAddress() << "\n";
+  // softwareFreshman.Print();
 
-  for(int i=0; i<5; i++){
-    std::cout << studentData[i] << "\n";
-  }
+  // SecurityStudent securityFreshman(11, "Ricky", "Bobby", "rbobby@wgu.edu", 21, days, SECURITY);
+  // std::cout << securityFreshman.GetStudentID() << "\n";
+  // std::cout << securityFreshman.GetFirstName() << "\n";
+  // std::cout << securityFreshman.GetEmailAddress() << "\n";
+  // securityFreshman.Print();
+
+  // NetworkStudent NetworkFreshman(11, "Someone", "Else", "selse@wgu.edu", 45, days, NETWORKING);
+  // std::cout << NetworkFreshman.GetStudentID() << "\n";
+  // std::cout << NetworkFreshman.GetFirstName() << "\n";
+  // std::cout << NetworkFreshman.GetEmailAddress() << "\n";
+  // NetworkFreshman.Print();
+
 
   // classRoster.printAll();
   // classRoster.printInvalidEmails();

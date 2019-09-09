@@ -9,7 +9,7 @@ class Student {
     const static int dayCompletionSize = 3;
 
   protected:
-    int studentID;
+    std::string studentID;
     std::string first_name;
     string last_name;
     string email_address;
@@ -20,8 +20,8 @@ class Student {
 
   public: 
     Student();
-    Student(int studentID, string first_name, string last_name, string email_address, int age, int numDaysToComplete[]);
-    void SetStudentID(int studentID);
+    Student(string studentID, string first_name, string last_name, string email_address, int age, int numDaysToComplete[]);
+    void SetStudentID(std::string studentID);
     void SetFirstName(std::string first_name);
     void SetLastName(std::string last_name);
     void SetEmailAddress(std::string email_address);
@@ -30,7 +30,7 @@ class Student {
     virtual Degree getDegreeProgram() = 0;
     virtual void Print() = 0;
     
-    int GetStudentID();
+    std::string GetStudentID();
     std::string GetFirstName();
     std::string GetLastName();
     std::string GetEmailAddress();

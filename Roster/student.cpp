@@ -12,7 +12,7 @@ Student::Student(){
        return;
 }
 
-Student::Student(int studentID, std::string first_name, std::string last_name, std::string email_address, int age, int numDaysToComplete[])
+Student::Student(std::string studentID, std::string first_name, std::string last_name, std::string email_address, int age, int numDaysToComplete[])
 {
    this->studentID = studentID;
    this->first_name = first_name;
@@ -23,7 +23,7 @@ Student::Student(int studentID, std::string first_name, std::string last_name, s
 }
 
 //SETTERS
-void Student::SetStudentID(int studentID){
+void Student::SetStudentID(std::string studentID){
   this->studentID = studentID;
 }
 
@@ -48,7 +48,7 @@ void Student::SetNumDaysToComplete(int numDaysToComplete[]){
 }
 
 //GETTERS
-int Student::GetStudentID(){
+std::string Student::GetStudentID(){
   return studentID;
 }
 

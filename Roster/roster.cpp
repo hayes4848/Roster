@@ -1,4 +1,6 @@
 #include<string>
+#include <sstream>
+#include <vector>
 #include<iostream>
 #include "student.h"
 #include "softwareStudent.h"
@@ -13,7 +15,16 @@ Roster::Roster() {
 };
 
 void Roster::parseData(std::string data){
-  std::cout << data;
+  stringstream ss(data);
+  vector<std::string> result;
+  while( ss.good() ){
+      std::string substr;
+      getline( ss, substr, ',' );
+      result.push_back( substr );
+  }
+  for(int i=0; i<9; i++){
+    std::cout << result[i] << "\n";
+  }
 };
 
 void Roster::add(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree dt){

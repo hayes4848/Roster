@@ -18,7 +18,7 @@ Degree NetworkStudent::getDegreeProgram(){
 void NetworkStudent::Print()
 {
 	this->Student::Print();
-	std::cout << "NETWORKING" << "\n";
+	std::cout << "Degree Program: " << "NETWORKING" << "\n";
 }
 
 NetworkStudent::~NetworkStudent()

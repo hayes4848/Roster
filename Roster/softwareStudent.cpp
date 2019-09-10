@@ -18,7 +18,7 @@ Degree SoftwareStudent::getDegreeProgram(){
 void SoftwareStudent::Print()
 {
 	this->Student::Print();
-	std::cout << "SOFTWARE" << "\n";
+	std::cout << "Degree Program: " << "SOFTWARE" << "\n";
 }
 
 SoftwareStudent::~SoftwareStudent()

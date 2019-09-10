@@ -73,7 +73,12 @@ int* Student::GetNumDaysToComplete(){
 }
 
 void Student::Print(){
-  std::cout << "Print Something\n";
+  std::cout << studentID << "\t";
+  std::cout << "First Name: " << first_name << "\t";
+  std::cout << "Last Name: " << last_name << "\t";
+  std::cout << "Email Address: " << email_address << "\t";
+  std::cout << "Age: " << age << "\t";
+  std::cout << "Days In Course: {" << numDaysToComplete[0] << "," << numDaysToComplete[1] << "," << numDaysToComplete[2] << "} \t";
 }
 
 Degree Student::getDegreeProgram(){}

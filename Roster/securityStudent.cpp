@@ -18,7 +18,7 @@ Degree SecurityStudent::getDegreeProgram(){
 void SecurityStudent::Print()
 {
 	this->Student::Print();
-	std::cout << "SECURITY" << "\n";
+	std::cout << "Degree Program: " << "SECURITY" << "\n";
 }
 
 SecurityStudent::~SecurityStudent()

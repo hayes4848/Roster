@@ -52,18 +52,26 @@ void Roster::add(std::string studentID, std::string firstName, std::string lastN
 	else if (dt == NETWORKING) classRosterArray[lastIndex] = new NetworkStudent(studentID, firstName, lastName, emailAddress, age, daysInClass, dt);
   else classRosterArray[lastIndex] = new SecurityStudent(studentID, firstName, lastName, emailAddress, age, daysInClass, dt);
 };
+
 void Roster::remove(std::string studentID){
   bool studentExists = false;
   for(int i=0; i<5; i++){
     if(this->classRosterArray[i]->GetStudentID() == studentID){
       studentExists = true;
+      // delete this->classRosterArray[i];
+      this->classRosterArray[i] = this->classRosterArray[lastIndex];
+      lastIndex--;
+      std::cout <<  "student with ID " + studentID + " has been removed. \n";
     }
+  }
+  if(!studentExists){
+    std::cout << "Student with ID "  + studentID + " cannot be found, or does not exist. \n";
   }
 };
 
 void Roster::printAll(){
   for(int i=0; i<5; i++){
-    std::cout << i;
+    std::cout << i + 1;
     this->classRosterArray[i]->Print();
   }
 };
@@ -83,16 +91,17 @@ void Roster::printAverageDaysInCourse(std::string studentID){
 };
 
 void Roster::printInvalidEmails(){
-  std::cout << "\n" << "\n" << "Invalid Emails: " << "\n";
+  std::cout << "\n" << "Invalid Emails: " << "\n";
   for(int i=0; i<5; i++){
     std::string email = this->classRosterArray[i]->GetEmailAddress();
-    auto at = email.find("@");
-    auto period = email.find(".");
-    auto space = email.find(" ");
+    int at = email.find("@");
+    int period = email.find(".");
+    int space = email.find(" ");
     if( at == string::npos || period == string::npos || space != string::npos){
       std::cout << email << "\n";
     }
   }
+  std::cout << "\n";
 };
 
 void Roster::printByDegreeProgram(Degree degreeProgram){
@@ -101,10 +110,18 @@ void Roster::printByDegreeProgram(Degree degreeProgram){
       this->classRosterArray[i]->Print();
     }
   }
+  std::cout << "\n";
+};
+
+Roster::~Roster(){
+
 };
 
 
 int main() {
+
+  std::cout << "Student Name: Andrew Hayes | Programming Language: C++ | Course Title: C867 | Student ID: #000872883 \n \n";
+
   const string studentData[] =
   {"A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
   "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
@@ -118,17 +135,21 @@ int main() {
     classRoster->parseData(studentData[i]);
   }
 
-  // classRoster->printAll();
+  classRoster->printAll();
 
-  // classRoster->printInvalidEmails();
+  classRoster->printInvalidEmails();
 
-  // for(int i=0; i<5; i++){
-  //   classRoster->printAverageDaysInCourse(classRoster->getStudentByID(i)->GetStudentID());
-  // }
+  for(int i=0; i<5; i++){
+    classRoster->printAverageDaysInCourse(classRoster->getStudentByID(i)->GetStudentID());
+  }
+  std::cout << "\n";
 
-  // classRoster->printByDegreeProgram(SOFTWARE);
+  classRoster->printByDegreeProgram(SOFTWARE);
 
   classRoster->remove("A3");
-  // classRoster.remove("A3");
-  // //expected: the above line should print a message saying such a student with this ID was not found.
+  classRoster->remove("A3");
+
+  delete classRoster;
+
+  return 0;
 }
